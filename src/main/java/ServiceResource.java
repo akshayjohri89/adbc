@@ -31,7 +31,7 @@ public class ServiceResource {
     public AdText getAd(@QueryParam("id") Optional<Long> id) {
         String result = ReadBC.send();
         System.out.println("Result:"+result);
-        
+
         return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
     }
 }

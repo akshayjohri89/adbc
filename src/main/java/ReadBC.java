@@ -121,13 +121,13 @@ public class ReadBC {
             try {
                 CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
                 credentialsProvider.setCredentials(
-                        new AuthScope("localhost", 7175),
+                        new AuthScope("localhost", 7174),
                         new UsernamePasswordCredentials("multichainrpc", "7H3pMurCfk3jJKpUUmcqZDd74KkPzMJQffvXSBZ19v6U")
                 );
                 StringEntity myEntity = new StringEntity(jsonObject.toString());
 
                 HttpPost httpPost = new
-                        HttpPost("http://localhost:7175");       //HttpPost("http://multichainrpc:EZikv3MtoKA2yjrG6T7eTkPZMXntwr9k1ft7ja3jLLaA@192.168.1.6:9732");
+                        HttpPost("http://localhost:7174");       //HttpPost("http://multichainrpc:EZikv3MtoKA2yjrG6T7eTkPZMXntwr9k1ft7ja3jLLaA@192.168.1.6:9732");
                 httpPost.setEntity(myEntity);
 
                 HttpResponse httpResponse = httpClient.execute(httpPost);
