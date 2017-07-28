@@ -31,15 +31,7 @@ public class ServiceResource {
     public AdText getAd(@QueryParam("id") Optional<Long> id) {
         String result = ReadBC.send();
         System.out.println("Result:"+result);
-
-        ObjectMapper om = new ObjectMapper();
-        try {
-            List hm = om.readValue(result, List.class);
-            System.out.println("HM: " + hm.get(0));
-        } catch (IOException e) {
-            System.out.println("OM Error:"+ e.getMessage());
-            e.printStackTrace();
-        }
+        
         return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
     }
 }
