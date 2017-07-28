@@ -41,7 +41,7 @@ public class ReadBC {
             //Warning: doing this is no good in high quality applications.
             //Instead, present appropriate error messages to the user.
             //But it's perfectly fine for prototyping.
-            System.out.println("Exec error");
+            System.out.println("Exec error"+e.getMessage());
             return null;
         }
 
