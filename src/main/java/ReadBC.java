@@ -12,10 +12,10 @@ import java.util.Map;
 public class ReadBC {
 
     public static void send() {
-        String method = "liststreamitems";
+        String method = "liststreamitems adstream1";
         String id = "";
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("stream-identifier", "adstream1");
+
 
         JSONRPC2Request request = new JSONRPC2Request(method, params, id);
         SocketStuff.sendData(request.toString());
