@@ -16,6 +16,7 @@ public class ReadBC {
 
     public static String send() {
         try {
+            System.out.println("Trying to execute command");
             Process process =
                     new ProcessBuilder(new String[] {"multichain-cli adchain1 liststreamitems adstream1"})
                             .redirectErrorStream(true)
@@ -40,7 +41,7 @@ public class ReadBC {
             //Warning: doing this is no good in high quality applications.
             //Instead, present appropriate error messages to the user.
             //But it's perfectly fine for prototyping.
-
+            System.out.println("Exec error");
             return null;
         }
 
