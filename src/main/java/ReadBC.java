@@ -13,7 +13,7 @@ public class ReadBC {
 
     public static void send() {
         String method = "liststreamitems adstream1";
-        String id = "";
+        String id = "multichainrpc";
         Map<String, Object> params = new HashMap<String, Object>();
 
 
