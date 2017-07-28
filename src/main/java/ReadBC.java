@@ -21,7 +21,7 @@ public class ReadBC {
             Process process =
                     new ProcessBuilder(new String[] {"multichain-cli adchain1 liststreamitems adstream1"})
                             .redirectErrorStream(true)
-                            .directory(new File("/"))
+                            .directory(new File("/home/akjohri/"))
                             .start();
 
             ArrayList<String> output = new ArrayList<String>();
