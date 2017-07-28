@@ -17,14 +17,16 @@ public class SocketStuff {
             PrintWriter out = new PrintWriter(os);
             String toSend = "";
             out.print(data);
+            out.flush();
 
-            System.out.println("Sent Data");
+            System.out.println("Sent Data:"+data);
             byte[] messageByte = new byte[1000];
             boolean end = false;
             String messageString = "";
             int bytesRead = 0;
             try
             {
+
                 while((bytesRead = is.read(messageByte)) != -1)
                 {
                     messageString += new String(messageByte, 0, bytesRead);
