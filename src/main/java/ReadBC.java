@@ -29,7 +29,7 @@ import java.util.Map;
 public class ReadBC {
 
     public static String send() {
-                String method = "liststreamitems";
+                String method = "adchain1 liststreamitems";
         String id = "1";
         List<Object> params = new ArrayList<Object>();
         params.add("adstream1");
