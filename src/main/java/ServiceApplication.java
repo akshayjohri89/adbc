@@ -2,6 +2,9 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
+
 /**
  * Created by akjohri on 7/28/2017.
  */
@@ -24,5 +27,14 @@ public class ServiceApplication extends Application<ServiceConfiguration> {
     public void run(ServiceConfiguration configuration, Environment environment) {
         final ServiceResource resource = new ServiceResource();
         environment.jersey().register(resource);
+
+        final String rpcuser ="akjohri";
+        final String rpcpassword ="AdBlockchain123";
+
+        Authenticator.setDefault(new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication (rpcuser, rpcpassword.toCharArray());
+            }
+        });
     }
 }

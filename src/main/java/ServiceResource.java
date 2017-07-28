@@ -20,6 +20,7 @@ public class ServiceResource {
     @GET
     @Timed
     public AdText getAd(@QueryParam("id") Optional<Long> id) {
+        ReadBC.send();
         return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
     }
 }
