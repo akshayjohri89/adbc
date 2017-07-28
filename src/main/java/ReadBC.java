@@ -3,6 +3,7 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class ReadBC {
             Process process =
                     new ProcessBuilder(new String[] {"multichain-cli adchain1 liststreamitems adstream1"})
                             .redirectErrorStream(true)
+                            .directory(new File("/"))
                             .start();
 
             ArrayList<String> output = new ArrayList<String>();
