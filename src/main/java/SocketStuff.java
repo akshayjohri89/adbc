@@ -24,11 +24,9 @@ public class SocketStuff {
             boolean end = false;
             String messageString = "";
             int bytesRead = 0;
-            try
-            {
-
-                while((bytesRead = is.read(messageByte)) != -1)
-                {
+            try {
+                while((bytesRead = is.read(messageByte)) != -1) {
+                    System.out.println("Read:"+bytesRead);
                     messageString += new String(messageByte, 0, bytesRead);
                 }
                 System.out.println("MESSAGE: " + messageString);
