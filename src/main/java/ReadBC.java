@@ -19,7 +19,7 @@ public class ReadBC {
         try {
             System.out.println("Trying to execute command");
             Process process =
-                    new ProcessBuilder(new String[] {"multichain-cli adchain1 liststreamitems adstream1"})
+                    new ProcessBuilder(new String[] {"multichain-cli", "adchain1", "liststreamitems", "adstream1"})
                             .redirectErrorStream(true)
                             .directory(new File("/home/akjohri/"))
                             .start();
