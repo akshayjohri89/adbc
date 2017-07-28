@@ -29,9 +29,10 @@ import java.util.Map;
 public class ReadBC {
 
     public static String send() {
-                String method = "liststreamitems adstream1";
+                String method = "liststreamitems";
         String id = "1";
-        Map<String, Object> params = new HashMap<String, Object>();
+        List<Object> params = new ArrayList<Object>();
+        params.add("adstream1");
         JSONObject jsonObject = invokeRPC(id,method,null,"adchain1");
         return jsonObject.toString();
     }
