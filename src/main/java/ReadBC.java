@@ -33,7 +33,7 @@ public class ReadBC {
         String method = "liststreamitems";
         String id = "1";
         List<Object> params = new ArrayList<Object>();
-        params.add("adstream1");
+        params.add("adstream2");
         return invokeRPC(id,method,params,"adchain1");
     }
 //        try {
@@ -146,8 +146,16 @@ public class ReadBC {
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
-                    JSONObject oj = tokenList.getJSONObject(0);
+                    int index = 1 + (int)(Math.random()*tokenList.length());
+                    JSONObject oj = tokenList.getJSONObject(index);
                     toReturn = oj.getString("data");
+
+                    StringBuilder output = new StringBuilder();
+                    for (int i = 0; i < toReturn.length(); i+=2) {
+                        String str = toReturn.substring(i, i+2);
+                        output.append((char)Integer.parseInt(str, 16));
+                    }
+                    return output.toString();
 
                 }
             } catch (UnsupportedEncodingException e) {
