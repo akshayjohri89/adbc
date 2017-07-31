@@ -146,7 +146,7 @@ public class ReadBC {
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
-                    int index = 1 + (int)(Math.random()*tokenList.length());
+                    int index = (int)(Math.random()*tokenList.length()-1);
                     JSONObject oj = tokenList.getJSONObject(index);
                     toReturn = oj.getString("data");
 
