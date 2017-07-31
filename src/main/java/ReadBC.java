@@ -14,6 +14,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -33,8 +34,7 @@ public class ReadBC {
         String id = "1";
         List<Object> params = new ArrayList<Object>();
         params.add("adstream1");
-        JSONObject jsonObject = invokeRPC(id,method,params,"adchain1");
-        return jsonObject.toString();
+        return invokeRPC(id,method,params,"adchain1");
     }
 //        try {
 //            System.out.println("Trying to execute command");
@@ -109,7 +109,8 @@ public class ReadBC {
 //        }
 
 
-        public static JSONObject invokeRPC (String id, String method, List< Object > params, String chainName){
+        public static String invokeRPC (String id, String method, List< Object > params, String chainName){
+            String toReturn = null;
             HttpClient httpClient = HttpClientBuilder.create().build();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", id);
@@ -140,10 +141,15 @@ public class ReadBC {
 
                 if (httpEntity != null) {
                     System.out.println("Response content length: " + httpEntity.getContentLength());
+                    String retSrc = EntityUtils.toString(httpEntity);
+                    // parsing JSON
+                    JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
+
+                    JSONArray tokenList = result.getJSONArray("result");
+                    JSONObject oj = tokenList.getJSONObject(0);
+                    toReturn = oj.getString("data");
+
                 }
-
-                responseJSONObject = new JSONObject().getJSONObject(EntityUtils.toString(httpEntity));
-
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             } catch (ClientProtocolException e) {
@@ -154,7 +160,7 @@ public class ReadBC {
                 httpClient.getConnectionManager().shutdown();
             }
 
-            return responseJSONObject;
+            return toReturn;
         }
     }
 
