@@ -33,7 +33,7 @@ public class ServiceResource {
         if (result!= null) {
             System.out.println("Result:"+result);
         }
-        org.json.JSONObject jsonObject = new org.json.JSONObject().getJSONObject(result);
+        org.json.JSONObject jsonObject = new org.json.JSONObject(result);
 
         return new AdText(111,jsonObject.get("heading").toString(), jsonObject.getString("body").toString(), jsonObject.get("url").toString());
         //return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
