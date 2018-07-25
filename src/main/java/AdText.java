@@ -11,12 +11,19 @@ public class AdText {
     private String url;
     private String key;
 
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    private String score;
+
     public AdText() {}
     public AdText(long id, String heading, String body, String url, String key) {
         this.id = id;
         this.heading = heading;
         this.body = body;
         this.url = url;
+        this.score = "0";
     }
 
     @JsonProperty
@@ -43,4 +50,10 @@ public class AdText {
     public String getKey() {
         return key;
     }
+
+    @JsonProperty
+    public String getScore() {
+        return score;
+    }
+
 }

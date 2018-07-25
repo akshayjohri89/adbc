@@ -35,10 +35,14 @@ public class ServiceResource {
         }
         org.json.JSONObject jsonObject = new org.json.JSONObject(result);
 
-        return new AdText(111,jsonObject.get("heading").toString(),
+        AdText toReturn =  new AdText(111,jsonObject.get("heading").toString(),
                 jsonObject.getString("body").toString(),
                 jsonObject.get("url").toString(),
                 jsonObject.get("key").toString());
+        if (jsonObject.get("score")!=null) {
+            toReturn.setScore(jsonObject.get("score").toString());
+        }
+        return toReturn;
         //return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
     }
 }
