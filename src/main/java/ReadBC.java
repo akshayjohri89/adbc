@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Random;
 /**
  * Created by akjohri on 7/28/2017.
  */
@@ -31,6 +31,9 @@ public class ReadBC {
 
     public static String send() {
         String method = "liststreamitems";
+//        Random randomNum = new Random();
+//        int index = min + randomNum.nextInt(2);
+//        String id = String.valueOf(index);
         String id = "1";
         List<Object> params = new ArrayList<Object>();
         params.add("adstream1");
@@ -148,7 +151,12 @@ public class ReadBC {
                     JSONArray tokenList = result.getJSONArray("result");
                     int index = (int)(Math.random()*tokenList.length());
                     JSONObject oj = tokenList.getJSONObject(index);
-                    toReturn = oj.getString("data");
+                    System.out.println("original Object:"+oj.toString());
+                    //Add Key
+                    JSONObject jsonObject = new JSONObject(oj.getString("data"));
+                    jsonObject.put("key",oj.getString("key"));
+                    toReturn = jsonObject.toString();
+//                    toReturn = oj.getString("data");
 
                     StringBuilder output = new StringBuilder();
                     for (int i = 0; i < toReturn.length(); i+=2) {
