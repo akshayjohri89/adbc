@@ -152,18 +152,21 @@ public class ReadBC {
                     int index = (int)(Math.random()*tokenList.length());
                     JSONObject oj = tokenList.getJSONObject(index);
                     System.out.println("original Object:"+oj.toString());
+                    String data = oj.getString("data");
                     //Add Key
-                    JSONObject returnJson = new JSONObject(oj.getString("data"));
-                    returnJson.put("key",oj.getString("key"));
-                    toReturn = returnJson.toString();
+
 //                    toReturn = oj.getString("data");
+
 
                     StringBuilder output = new StringBuilder();
                     for (int i = 0; i < toReturn.length(); i+=2) {
                         String str = toReturn.substring(i, i+2);
                         output.append((char)Integer.parseInt(str, 16));
                     }
-                    return output.toString();
+                    JSONObject returnJson = new JSONObject(output);
+                    returnJson.put("key",oj.getString("key"));
+                    return returnJson.toString();
+//                    return output.toString();
 
                 }
             } catch (UnsupportedEncodingException e) {
