@@ -9,9 +9,10 @@ public class AdText {
     private String heading;
     private String body;
     private String url;
+    private String key;
 
     public AdText() {}
-    public AdText(long id, String heading, String body, String url) {
+    public AdText(long id, String heading, String body, String url, String key) {
         this.id = id;
         this.heading = heading;
         this.body = body;
@@ -36,5 +37,10 @@ public class AdText {
     @JsonProperty
     public String getUrl() {
         return url;
+    }
+
+    @JsonProperty
+    public String getKey() {
+        return key;
     }
 }
