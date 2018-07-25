@@ -10,7 +10,7 @@ public class SocketStuff {
     public static void sendData(String data) {
         System.out.println("inside SocketStuff.sendData");
         try {
-            Socket socket = new Socket("localhost", 4356);
+            Socket socket = new Socket("localhost", 4357);
             OutputStream os = socket.getOutputStream();
             DataInputStream is = new DataInputStream(socket.getInputStream());
 
