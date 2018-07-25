@@ -153,9 +153,9 @@ public class ReadBC {
                     JSONObject oj = tokenList.getJSONObject(index);
                     System.out.println("original Object:"+oj.toString());
                     //Add Key
-                    JSONObject jsonObject = new JSONObject(oj.getString("data"));
-                    jsonObject.put("key",oj.getString("key"));
-                    toReturn = jsonObject.toString();
+                    JSONObject returnJson = new JSONObject(oj.getString("data"));
+                    returnJson.put("key",oj.getString("key"));
+                    toReturn = returnJson.toString();
 //                    toReturn = oj.getString("data");
 
                     StringBuilder output = new StringBuilder();
