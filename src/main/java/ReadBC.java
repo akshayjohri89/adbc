@@ -165,8 +165,8 @@ public class ReadBC {
                         String str = data.substring(i, i+2);
                         output.append((char)Integer.parseInt(str, 16));
                     }
-                    System.out.println("original Object:"+output.toString());
-                    JSONObject returnJson = new JSONObject(output.toString());
+                    System.out.println("original Object:"+output.toString().trim());
+                    JSONObject returnJson = new JSONObject(output.toString().trim());
                     returnJson.put("key",oj.getString("key"));
                     return returnJson.toString();
 //                    return output.toString();
