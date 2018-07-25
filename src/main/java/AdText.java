@@ -23,6 +23,7 @@ public class AdText {
         this.heading = heading;
         this.body = body;
         this.url = url;
+        this.key = key;
         this.score = "0";
     }
 
