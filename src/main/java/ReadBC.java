@@ -149,12 +149,11 @@ public class ReadBC {
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
-                    JSONObject oj = null;
-                    do {
-                        int index = (int)(Math.random()*tokenList.length());
-                        oj = tokenList.getJSONObject(index);
-                    } while(oj.getString("data")==null);
-                    System.out.println("original Object:"+oj.toString());
+
+                    int index = (int)(Math.random()*tokenList.length());
+                    JSONObject oj = tokenList.getJSONObject(index);
+
+
                     String data = oj.getString("data");
                     //Add Key
 
@@ -166,6 +165,7 @@ public class ReadBC {
                         String str = data.substring(i, i+2);
                         output.append((char)Integer.parseInt(str, 16));
                     }
+                    System.out.println("original Object:"+output.toString());
                     JSONObject returnJson = new JSONObject(output.toString());
                     returnJson.put("key",oj.getString("key"));
                     return returnJson.toString();
