@@ -149,10 +149,10 @@ public class ReadBC {
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
-
+                    JSONObject oj = null;
                     do {
                         int index = (int)(Math.random()*tokenList.length());
-                        JSONObject oj = tokenList.getJSONObject(index);
+                        oj = tokenList.getJSONObject(index);
                     } while(oj.getString("data")==null);
                     System.out.println("original Object:"+oj.toString());
                     String data = oj.getString("data");
