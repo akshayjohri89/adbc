@@ -33,7 +33,7 @@ public class ReadBC {
         String method = "liststreamitems";
         String id = "1";
         List<Object> params = new ArrayList<Object>();
-        params.add("adstream2");
+        params.add("adstream1");
         return invokeRPC(id,method,params,"adchain1");
     }
 //        try {
@@ -123,14 +123,14 @@ public class ReadBC {
             try {
                 CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
                 credentialsProvider.setCredentials(
-                        new AuthScope("localhost", 7174),
-                        new UsernamePasswordCredentials("multichainrpc", "7H3pMurCfk3jJKpUUmcqZDd74KkPzMJQffvXSBZ19v6U")
+                        new AuthScope("localhost", 4356),
+                        new UsernamePasswordCredentials("multichainrpc", "Apb8LDVcPtsCqBeDKBVCtpNRx4GnCPpK2fBJ2eE1S8uK")
                 );
 
                 StringEntity myEntity = new StringEntity(jsonObject.toString());
 
                 HttpPost httpPost = new
-                        HttpPost("http://multichainrpc:7H3pMurCfk3jJKpUUmcqZDd74KkPzMJQffvXSBZ19v6U@localhost:7174");       //HttpPost("http://multichainrpc:EZikv3MtoKA2yjrG6T7eTkPZMXntwr9k1ft7ja3jLLaA@192.168.1.6:9732");
+                        HttpPost("http://multichainrpc:Apb8LDVcPtsCqBeDKBVCtpNRx4GnCPpK2fBJ2eE1S8uK@localhost:4356");       //HttpPost("http://multichainrpc:EZikv3MtoKA2yjrG6T7eTkPZMXntwr9k1ft7ja3jLLaA@192.168.1.6:9732");
                 httpPost.setEntity(myEntity);
 
                 HttpResponse httpResponse = httpClient.execute(httpPost);

@@ -10,7 +10,7 @@ public class SocketStuff {
     public static void sendData(String data) {
         System.out.println("inside SocketStuff.sendData");
         try {
-            Socket socket = new Socket("localhost", 7175);
+            Socket socket = new Socket("localhost", 4356);
             OutputStream os = socket.getOutputStream();
             DataInputStream is = new DataInputStream(socket.getInputStream());
 
@@ -29,7 +29,8 @@ public class SocketStuff {
                     System.out.println("Read:"+bytesRead);
                     messageString += new String(messageByte, 0, bytesRead);
                 }
-                System.out.println("MESSAGE: " + messageString);
+                System.out.println("MESSAGE_hex: " + messageString);
+
             }
             catch (Exception e)
             {
