@@ -19,8 +19,8 @@
       <file leaf-file-name="ReadBC.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ReadBC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="168" column="83" lean-forward="false" selection-start-line="168" selection-start-column="83" selection-end-line="168" selection-end-column="83" />
+            <state relative-caret-position="417">
+              <caret line="154" column="24" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -852,8 +852,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ReadBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="168" column="83" lean-forward="false" selection-start-line="168" selection-start-column="83" selection-end-line="168" selection-end-column="83" />
+        <state relative-caret-position="417">
+          <caret line="154" column="24" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

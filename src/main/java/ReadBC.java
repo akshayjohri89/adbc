@@ -149,24 +149,19 @@ public class ReadBC {
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
-
-                    int index = (int)(Math.random()*tokenList.length());
-                    JSONObject oj = tokenList.getJSONObject(index);
-
-
-                    String data = oj.getString("data");
-                    //Add Key
-
-//                    toReturn = oj.getString("data");
-
-
-                    StringBuilder output = new StringBuilder();
-                    for (int i = 0; i < data.length(); i+=2) {
-                        String str = data.substring(i, i+2);
-                        output.append((char)Integer.parseInt(str, 16));
-                    }
-                    System.out.println("original Object:"+output.toString().trim());
-                    JSONObject returnJson = new JSONObject(output.toString().trim());
+                    JSONObject returnJson = null,oj =null;
+                    do {
+                        int index = (int)(Math.random()*tokenList.length());
+                        oj = tokenList.getJSONObject(index);
+                        String data = oj.getString("data");
+                        StringBuilder output = new StringBuilder();
+                        for (int i = 0; i < data.length(); i+=2) {
+                            String str = data.substring(i, i+2);
+                            output.append((char)Integer.parseInt(str, 16));
+                        }
+                        System.out.println("original Object:"+output.toString().trim());
+                        returnJson = new JSONObject(output.toString().trim());
+                    } while(returnJson.get("url")==null);
                     returnJson.put("key",oj.getString("key"));
                     return returnJson.toString();
 //                    return output.toString();
