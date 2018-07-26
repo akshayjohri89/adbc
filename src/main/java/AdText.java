@@ -10,16 +10,15 @@ public class AdText {
     private String body;
     private String url;
     private String key;
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
+    private String clicks;
+    private String imps;
+    private String advertiser;
     private String score;
 
     public AdText() {}
-    public AdText(long id, String heading, String body, String url, String key) {
+    public AdText(long id, String advertiser, String heading, String body, String url, String key) {
         this.id = id;
+        this.advertiser = advertiser;
         this.heading = heading;
         this.body = body;
         this.url = url;
@@ -57,4 +56,28 @@ public class AdText {
         return score;
     }
 
+    @JsonProperty
+    public String getClicks() {
+        return clicks;
+    }
+    @JsonProperty
+    public String getImps() {
+        return imps;
+    }
+    @JsonProperty
+    public String getAdvertiser() {
+        return advertiser;
+    }
+
+    public void setClicks(String clicks) {
+        this.clicks = clicks;
+    }
+
+    public void setImps(String imps) {
+        this.imps = imps;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
 }

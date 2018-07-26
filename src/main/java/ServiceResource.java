@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.common.base.Optional;
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import net.minidev.json.JSONObject;
+import org.json.JSONException;
 
 
 import javax.ws.rs.GET;
@@ -34,14 +35,32 @@ public class ServiceResource {
             System.out.println("Result:"+result);
         }
         org.json.JSONObject jsonObject = new org.json.JSONObject(result);
+        String imps="",clicks = "",advertiser="";
+        try {
+            clicks = jsonObject.get("clicks").toString();
+        } catch (JSONException ex) {
+        }
+        try {
+            imps = jsonObject.get("imps").toString();
+        } catch (JSONException ex) {
+        }
+        try {
+            advertiser = jsonObject.get("advertiser").toString();
+        } catch (JSONException ex) {
+        }
 
-        AdText toReturn =  new AdText(111,jsonObject.get("heading").toString(),
+
+        AdText toReturn =  new AdText(111,
+                advertiser,
+                jsonObject.get("heading").toString(),
                 jsonObject.getString("body").toString(),
                 jsonObject.get("url").toString(),
                 jsonObject.get("key").toString());
         if (jsonObject.get("score")!=null) {
             toReturn.setScore(jsonObject.get("score").toString());
         }
+        toReturn.setImps(imps);
+        toReturn.setClicks(clicks);
         return toReturn;
         //return new AdText(11l, "Dummy Ad", "Random Ad body", "www.bing.com");
     }
