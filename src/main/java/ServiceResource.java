@@ -34,7 +34,25 @@ public class ServiceResource {
         if (result!= null) {
             System.out.println("Result:"+result);
         }
-        org.json.JSONObject jsonObject = new org.json.JSONObject(result);
+        String score = "";
+        int count = 0;
+        while ((score==""||score=="0")&&(count<5)) {
+            org.json.JSONObject jsonObject = new org.json.JSONObject(result);
+            try {
+                score = jsonObject.get("score").toString();
+            } catch (JSONException e) {
+            } finally {
+                count++;
+            }
+            System.out.println("getad: Got:"+jsonObject);
+        }
+
+        if (score==""||score=="0") {
+            System.out.println("getad: Returning blank");
+            return new AdText();
+        }
+
+
         String imps="",clicks = "",advertiser="";
         try {
             clicks = jsonObject.get("clicks").toString();
