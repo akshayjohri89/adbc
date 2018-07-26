@@ -37,7 +37,7 @@ public class ServiceResource {
         org.json.JSONObject jsonObject = new org.json.JSONObject();
         String score = "";
         int count = 0;
-        while ((score==""||score=="0")&&(count<5)) {
+        while ((score.equals("")||score.equals("0"))&&(count<5)) {
              jsonObject = new org.json.JSONObject(result);
             try {
                 score = jsonObject.get("score").toString();
@@ -48,7 +48,7 @@ public class ServiceResource {
             System.out.println("getad: Got:"+jsonObject);
         }
 
-        if (score==""||score=="0") {
+        if (score.equals("")||score.equals("0")) {
             System.out.println("getad: Returning blank");
             return new AdText();
         }
