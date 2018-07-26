@@ -30,15 +30,12 @@ public class ServiceResource {
     @GET
     @Timed
     public AdText getAd(@QueryParam("id") Optional<Long> id) {
-        String result = ReadBC.send();
-        if (result!= null) {
-            System.out.println("Result:"+result);
-        }
         org.json.JSONObject jsonObject = new org.json.JSONObject();
         String score = "";
         int count = 0;
         while ((score.equals("")||score.equals("0"))&&(count<5)) {
-             jsonObject = new org.json.JSONObject(result);
+            String result = ReadBC.send();
+            jsonObject = new org.json.JSONObject(result);
             try {
                 score = jsonObject.get("score").toString();
             } catch (JSONException e) {

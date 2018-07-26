@@ -15,7 +15,17 @@ public class AdText {
     private String advertiser;
     private String score;
 
-    public AdText() {}
+    public AdText() {
+        this.heading = "";
+        this.body = "";
+        this.advertiser = "";
+        this.url = "";
+        this.key = "";
+        this.clicks = "";
+        this.imps = "";
+        this.score = "";
+        this.id = 0;
+    }
     public AdText(long id, String advertiser, String heading, String body, String url, String key) {
         this.id = id;
         this.advertiser = advertiser;
