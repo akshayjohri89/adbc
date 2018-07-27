@@ -92,6 +92,7 @@ public class ReadBC {
                     if (retSrc.equals("")) {
                         return "";
                     }
+                    System.out.println("getRandomKey:retSrc:"+retSrc);
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
