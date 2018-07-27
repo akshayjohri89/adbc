@@ -154,8 +154,8 @@ public class ReadBC {
                 }
                 System.out.println("original Object:"+output.toString().trim());
 
-                JSONObject returnJson = new JSONObject(output.toString().trim());
-                returnJson.put("key",ob.getString("key"));
+                returnJson = new JSONObject(output.toString().trim());
+                returnJson.put("key",oj.getString("key"));
 
                 return returnJson.toString();
             }
