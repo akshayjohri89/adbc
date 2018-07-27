@@ -30,17 +30,18 @@ import java.util.Random;
 public class ReadBC {
     private static final String rpcUser = "multichainrpc";
     private static final String rpcPassword = "3WsnHdSsUFgp3umeQbd3Hd3mrvNbQQpPoPTs285Up8eV";
+    private static final String stream = "adstream2";
 
     public static String send() {
         String method = "liststreamkeys";
         String id = "1";
         List<Object> params = new ArrayList<Object>();
-        params.add("adstream1");
+        params.add(stream);
         String key = getRandomKey(id,method,params,"adchain1");
         System.out.println("send:Got key:"+key);
         method = "liststreamkeyitems";
         params = new ArrayList<Object>();
-        params.add("adstream1");
+        params.add(stream);
         params.add(key.trim());
         params.add(false);
         params.add(1);
