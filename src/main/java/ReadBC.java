@@ -46,6 +46,7 @@ public class ReadBC {
         params.add("1");
         String toReturn = rpcGetAd(method,params,"adchain1");
         System.out.println("send:toReturn:"+toReturn);
+        return toReturn;
     }
 
         public static String getRandomKey (String id, String method, List< Object > params, String chainName){
