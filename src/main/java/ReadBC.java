@@ -42,8 +42,8 @@ public class ReadBC {
         params = new ArrayList<Object>();
         params.add("adstream1");
         params.add(key.trim());
-        params.add("false");
-        params.add("1");
+//        params.add("false");
+//        params.add("1");
         String toReturn = rpcGetAd(method,params,"adchain1");
         System.out.println("send:toReturn:"+toReturn);
         return toReturn;
@@ -105,7 +105,8 @@ public class ReadBC {
         }
 
     public static String rpcGetAd (String method, List< Object > params, String chainName){
-        JSONObject returnJson = null,oj =null;
+        JSONObject returnJson = null,oj =
+                null;
         HttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject jsonObject = new JSONObject();
         String id = "1";
