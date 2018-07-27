@@ -89,14 +89,6 @@ public class ReadBC {
                     JSONObject returnJson = null,oj =null;
                         int index = (int)(Math.random()*tokenList.length());
                         oj = tokenList.getJSONObject(index);
-                        String data = oj.getString("data");
-                        StringBuilder output = new StringBuilder();
-                        for (int i = 0; i < data.length(); i+=2) {
-                            String str = data.substring(i, i+2);
-                            output.append((char)Integer.parseInt(str, 16));
-                        }
-                        System.out.println("original Object:"+output.toString().trim());
-                        returnJson = new JSONObject(output.toString().trim());
                     return oj.getString("key");
                 }
             } catch (UnsupportedEncodingException e) {
