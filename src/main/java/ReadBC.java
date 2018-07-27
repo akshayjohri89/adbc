@@ -43,7 +43,7 @@ public class ReadBC {
         params.add("adstream1");
         params.add(key.trim());
         params.add(false);
-        params.add("1");
+        params.add(1);
         String toReturn = rpcGetAd(method,params,"adchain1");
         System.out.println("send:toReturn:"+toReturn);
         return toReturn;
