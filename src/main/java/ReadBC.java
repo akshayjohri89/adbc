@@ -89,6 +89,9 @@ public class ReadBC {
                     System.out.println("Response content length: " + httpEntity.getContentLength());
                     String retSrc = EntityUtils.toString(httpEntity);
                     // parsing JSON
+                    if (retSrc.equals("")) {
+                        return "";
+                    }
                     JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
 
                     JSONArray tokenList = result.getJSONArray("result");
