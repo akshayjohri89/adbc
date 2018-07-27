@@ -104,7 +104,7 @@ public class ReadBC {
             return toReturn;
         }
 
-    public static JSONObject rpcGetAd (String method, List< Object > params, String chainName){
+    public static String rpcGetAd (String method, List< Object > params, String chainName){
         JSONObject returnJson = null,oj =null;
         HttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject jsonObject = new JSONObject();
