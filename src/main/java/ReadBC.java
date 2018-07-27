@@ -41,7 +41,7 @@ public class ReadBC {
         method = "liststreamkeyitems";
         params = new ArrayList<Object>();
         params.add("adstream1");
-        params.add(key);
+        params.add(key.trim());
         params.add("false");
         params.add("1");
         String toReturn = rpcGetAd(method,params,"adchain1");
