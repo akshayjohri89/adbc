@@ -104,9 +104,8 @@ public class ReadBC {
             return toReturn;
         }
 
-    public static String rpcGetAd (String method, List< Object > params, String chainName){
-        System.out.println("rpcGetAd:method:"+method+"params:"+params+"chain:"+chainName);
-            JSONObject returnJson = null,oj =null;
+    public static JSONObject rpcGetAd (String method, List< Object > params, String chainName){
+        JSONObject returnJson = null,oj =null;
         HttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject jsonObject = new JSONObject();
         String id = "1";
@@ -143,8 +142,6 @@ public class ReadBC {
                 System.out.println(retSrc);
                 JSONObject result = new JSONObject(retSrc); //Convert String to JSON Object
                 JSONArray tokenList = result.getJSONArray("result");
-
-//                int index = (int)(Math.random()*tokenList.length());
                 oj = tokenList.getJSONObject(0);
                 System.out.println("oj:"+oj);
                 String data = oj.getString("data");
@@ -154,9 +151,7 @@ public class ReadBC {
                     output.append((char)Integer.parseInt(str, 16));
                 }
                 System.out.println("original Object:"+output.toString().trim());
-                returnJson = new JSONObject(output.toString().trim());
-                returnJson.put("key",oj.getString("key"));
-                return returnJson.toString();
+                rreturn output.toString().trim();
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -169,5 +164,5 @@ public class ReadBC {
         }
         return returnJson.toString();
     }
-    }
+}
 
