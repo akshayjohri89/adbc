@@ -28,6 +28,8 @@ import java.util.Random;
  * Created by akjohri on 7/28/2017.
  */
 public class ReadBC {
+    private static final String rpcUser = "multichainrpc";
+    private static final String rpcPassword = "3WsnHdSsUFgp3umeQbd3Hd3mrvNbQQpPoPTs285Up8eV";
 
     public static String send() {
         String method = "liststreamkeys";
