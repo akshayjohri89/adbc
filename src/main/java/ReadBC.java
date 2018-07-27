@@ -152,7 +152,11 @@ public class ReadBC {
                     output.append((char)Integer.parseInt(str, 16));
                 }
                 System.out.println("original Object:"+output.toString().trim());
-                return output.toString().trim();
+
+                JSONObject returnJson = new JSONObject(output.toString().trim());
+                returnJson.put("key",ob.getString("key"));
+
+                return returnJson.toString();
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
