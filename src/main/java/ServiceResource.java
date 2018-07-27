@@ -35,6 +35,9 @@ public class ServiceResource {
         int count = 0;
         while ((score.equals("")||score.equals("0"))&&(count<5)) {
             String result = ReadBC.send();
+            if (result.equals("")) {
+                return new AdText();
+            }
             jsonObject = new org.json.JSONObject(result);
             try {
                 score = jsonObject.get("score").toString();

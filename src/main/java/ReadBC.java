@@ -15,6 +15,7 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -35,9 +36,13 @@ public class ReadBC {
     public static String send() {
         String method = "liststreamkeys";
         String id = "1";
+        String toReturn = "";
         List<Object> params = new ArrayList<Object>();
         params.add(stream);
         String key = getRandomKey(id,method,params,"adchain1");
+        if (key.equals("")) {
+            return toReturn;
+        }
         System.out.println("send:Got key:"+key);
         method = "liststreamkeyitems";
         params = new ArrayList<Object>();
@@ -45,7 +50,7 @@ public class ReadBC {
         params.add(key.trim());
         params.add(false);
         params.add(1);
-        String toReturn = rpcGetAd(method,params,"adchain1");
+        toReturn = rpcGetAd(method,params,"adchain1");
         System.out.println("send:toReturn:"+toReturn);
         return toReturn;
     }
@@ -98,7 +103,10 @@ public class ReadBC {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            finally {
                 httpClient.getConnectionManager().shutdown();
             }
 
