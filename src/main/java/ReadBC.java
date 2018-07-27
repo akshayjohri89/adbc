@@ -151,7 +151,7 @@ public class ReadBC {
                     output.append((char)Integer.parseInt(str, 16));
                 }
                 System.out.println("original Object:"+output.toString().trim());
-                rreturn output.toString().trim();
+                return output.toString().trim();
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
